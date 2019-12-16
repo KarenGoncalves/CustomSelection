@@ -1,7 +1,7 @@
 #' CustomSelection: a package for selecting reference genes from RNAseq data
 #'
-#' The CustomSelection package provides three funtions:
-#' Counts_to_tpm, DAFS and customReferences.
+#' The CustomSelection package provides four funtions:
+#' Counts_to_tpm, DAFS, gene_selection and customReferences.
 #'
 #' @section Counts_to_tpm function:
 #' Transforms count data into Transcripts Per Million (TPM) data
@@ -18,23 +18,20 @@
 #' This function calculates the threshold for a gene to be considered truly expressed in each sample (columns of the expression data frame).
 #'
 #' Modified from George and Chang (2014).
+#' @section gene_selection fuction:
+#' Uses average TPM values and the covariance of TPM values to select reference genes from RNAseq data.
 #'
-#' The function normally requires two inputs: data and name.
-#' We do not export the result, so we do not need a 'name' argument.
+#' If counts_to_tpm and DAFS functions were already computed, this function will use their results to select the genes with lowest covariance, among those considered as expressed according to DAFS, as references.
 #'
-#' @section custom_References fucntion:
+#' @section custom_References function:
 #' Uses average TPM values and the covariance of TPM values to select reference genes from RNAseq data
 #'
 #' This function uses the Counts_to_tpm and the DAFS function to select the reference genes.
 #'
 #' After transforming the counts into TPM values, the tpm data frame is used as input for DAFS function.
 #'
-#' We then calculate the average cutoff (result from DAFS) for all samples.
-#'
-#' Genes with average expression level lower than the average cutoff are excluded and the genes with lowest covariance are selected.
-#'
+#' We then select the genes with lowest covariance, among those considered as expressed according to DAFS (average expression higher than the cutoff), as references.#' @section sample_counts dataset:
 #' @section sample_counts dataset:
-#' Example - Counts data frame
 #'
 #' Counts of 3 samples (4 replicates per sample) of Arabidopsis thaliana genes.
 #'
@@ -47,8 +44,6 @@
 #' Further analyses were done using R software v.3.2.5. Genomic ranges of Arabidopsis transcripts were obtained from Ensembl plants with GenomicFeatures and overlaps of sequencing reads with the transcripts were counted using GenomicAlignments, using options for paired-end reads and union mode.
 #'
 #' @section ath_featureLength dataset:
-#' Example - vector with gene length
-#'
 #' Length of Arabidopsis thaliana genes (TAIR10) obtained with the following code:
 #'
 #' @docType package

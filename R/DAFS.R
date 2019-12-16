@@ -11,7 +11,8 @@
 #' @references doi:10.1186/1471-2105-15-92
 #' @export
 #' @return A vector with threshold for noise/true expression for each sample (columns from tpm data frame) in log2
-
+#' @name DAFS
+#'
 DAFS <- function(tpm){
 
   # determine which rows have all 0 counts

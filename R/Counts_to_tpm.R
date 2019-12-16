@@ -14,7 +14,7 @@
 #' @references https://gist.github.com/slowkow/c6ab0348747f86e2748b
 #' @return List with: a data frame with TPM of genes (rows) per sample (columns)
 #' and a vector with the names of the genes/features for which the TPM was calculated
-
+#' @name Counts_to_tpm
 Counts_to_tpm <- function(counts, featureLength) {
 
   # Ensure valid arguments.
