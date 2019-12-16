@@ -6,7 +6,8 @@
 #'
 #' The function normally requires two inputs: data and name.
 #' We do not export the result, so we do not need a 'name' argument.
-#' @param tpm Data frame of log2 transformed expression values (RPKM, FPKM, TPM, CPM, etc.). We recomend the use of the fuction Counts_to_tpm from this package.
+#' @param tpm Data frame of log2 transformed expression values (RPKM, FPKM, TPM, CPM, etc.). We recomend the use of the fuction Counts_to_tpm from this package. As the Counts_to_tpm function returns a list, use as input for DAFS the first object of its result, e.g.:
+#' \code{DAFS(Counts_to_tpm(...)[[1]])}
 #' @author George and Chang (2014)
 #' @references doi:10.1186/1471-2105-15-92
 #' @export
