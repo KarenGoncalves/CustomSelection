@@ -18,6 +18,7 @@
 #' This function calculates the threshold for a gene to be considered truly expressed in each sample (columns of the expression data frame).
 #'
 #' Modified from George and Chang (2014).
+#' 
 #' @section gene_selection fuction:
 #' Uses average TPM values and the covariance of TPM values to select reference genes from RNAseq data.
 #'
@@ -30,7 +31,8 @@
 #'
 #' After transforming the counts into TPM values, the tpm data frame is used as input for DAFS function.
 #'
-#' We then select the genes with lowest covariance, among those considered as expressed according to DAFS (average expression higher than the cutoff), as references.#' @section sample_counts dataset:
+#' We then select the genes with lowest covariance, among those considered as expressed according to DAFS (average expression higher than the cutoff), as references.
+#' 
 #' @section sample_counts dataset:
 #'
 #' Counts of 3 samples (4 replicates per sample) of Arabidopsis thaliana genes.
