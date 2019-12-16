@@ -3,3 +3,4 @@
 export(Counts_to_tpm)
 export(DAFS)
 export(customReferences)
+export(gene_selection)
