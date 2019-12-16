@@ -15,7 +15,7 @@
 
 customReferences <- function(counts, featureLength, top_genes = 0.5) {
 
-  tpm <- Counts_to_tpm(counts, featureLength)
+  tpm <- Counts_to_tpm(counts, featureLength)[[1]]
 
   # DAFS returns a vector with cutoffs for each sample (columns from counts) in log2
   # Here we obtain an average cutoff and transform it to use it with the tpm data
