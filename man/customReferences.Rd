@@ -22,7 +22,5 @@ This function uses the Counts_to_tpm and the DAFS function to select the referen
 \details{
 After transforming the counts into TPM values, the tpm data frame is used as input for DAFS function.
 
-We then calculate the average cutoff (result from DAFS) for all samples.
-
-Genes with average expression level lower than the average cutoff are excluded and the genes with lowest covariance are selected.
+We then select the genes with lowest covariance, among those considered as expressed according to DAFS (average expression higher than the cutoff), as references.
 }
