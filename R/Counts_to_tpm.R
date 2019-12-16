@@ -15,6 +15,10 @@
 #' @return List with: a data frame with TPM of genes (rows) per sample (columns)
 #' and a vector with the names of the genes/features for which the TPM was calculated
 #' @name Counts_to_tpm
+#' @examples
+#' data("sample_counts"); data("ath_featureLength")
+#' Counts_to_tpm(counts = sample_counts, featureLength = ath_featureLength)
+#'
 Counts_to_tpm <- function(counts, featureLength) {
 
   # Ensure valid arguments.
