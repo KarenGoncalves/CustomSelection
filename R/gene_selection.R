@@ -9,6 +9,12 @@
 #' @export
 #' @return Data frame with genes as rows and two columns: Mean (average TPM) and Covariance.
 #' @name gene_selection
+#' @examples
+#' data("sample_counts"); data("ath_featureLength")
+#' tpm <- Counts_to_tpm(counts = sample_counts, featureLength = ath_featureLength)
+#' dafs <- DAFS(tpm[[1]])
+#' genes <- gene_selection(countsToTpm_result = tpm[[1]], dafs_result = dafs, top_genes = 0.5)
+#'
 
 gene_selection <- function(countsToTpm_result, dafs_result, top_genes = 0.5) {
 

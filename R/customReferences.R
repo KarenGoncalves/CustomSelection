@@ -12,6 +12,9 @@
 #' @export
 #' @return Data frame with genes as rows and two columns: Mean (average TPM) and Covariance.
 #' @name customReferences
+#' @examples
+#' data("sample_counts"); data("ath_featureLength")
+#' genes <- customReferences(counts = sample_counts, featureLength = ath_featureLength, top_genes = 0.5)
 
 customReferences <- function(counts, featureLength, top_genes = 0.5) {
 

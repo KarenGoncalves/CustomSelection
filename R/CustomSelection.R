@@ -18,7 +18,7 @@
 #' This function calculates the threshold for a gene to be considered truly expressed in each sample (columns of the expression data frame).
 #'
 #' Modified from George and Chang (2014).
-#' 
+#'
 #' @section gene_selection fuction:
 #' Uses average TPM values and the covariance of TPM values to select reference genes from RNAseq data.
 #'
@@ -32,7 +32,7 @@
 #' After transforming the counts into TPM values, the tpm data frame is used as input for DAFS function.
 #'
 #' We then select the genes with lowest covariance, among those considered as expressed according to DAFS (average expression higher than the cutoff), as references.
-#' 
+#'
 #' @section sample_counts dataset:
 #'
 #' Counts of 3 samples (4 replicates per sample) of Arabidopsis thaliana genes.
@@ -47,14 +47,17 @@
 #'
 #' @section ath_featureLength dataset:
 #' Length of Arabidopsis thaliana genes (TAIR10) obtained with the following code:
-#' \code{
-#' library(biomaRt) ath <- useMart('plants_mart', host = "plants.ensembl.org", dataset = "athaliana_eg_gene") 
-#' 
-#' gene_start_end = getBM(attributes = c('ensembl_gene_id', 'start_position', 'end_position'), mart = ath) 
-#' 
-#' featureLength <- gene_start_end$end_position - gene_start_end$start_position 
-#' names(featureLength) <- gene_start_end$ensembl_gene_id
-#'}
+#'
+#' \code{library(biomaRt)}
+#'
+#' \code{ath <- useMart('plants_mart', host = "plants.ensembl.org", dataset = "athaliana_eg_gene")}
+#'
+#' \code{gene_start_end = getBM(attributes = c('ensembl_gene_id', 'start_position', 'end_position'), mart = ath)}
+#'
+#' \code{featureLength <- gene_start_end$end_position - gene_start_end$start_position}
+#'
+#' \code{names(featureLength) <- gene_start_end$ensembl_gene_id}
+#'
 #' @docType package
 #' @name CustomSelection
 NULL
