@@ -15,7 +15,7 @@ Transforms count data into Transcripts Per Million (TPM) data
 
 With the matrix of counts and the size of the genes/transcripts, it calculates the TPM.
 
-This function was modified from a gist from Slowkow (https://gist.github.com/slowkow/c6ab0348747f86e2748b).
+This function was modified from a gist from Slowkow \(https://gist.github.com/slowkow/c6ab0348747f86e2748b\).
 
 Here, we do not calculate the effective length.
 }
@@ -24,7 +24,7 @@ Here, we do not calculate the effective length.
 
 Calculates the threshold for a gene to be considered truly expressed
 
-This function calculates the threshold for a gene to be considered truly expressed in each sample (columns of the expression data frame).
+This function calculates the threshold for a gene to be considered truly expressed in each sample \(columns of the expression data frame\).
 
 Modified from George and Chang (2014).
 }
@@ -64,10 +64,16 @@ Further analyses were done using R software v.3.2.5. Genomic ranges of Arabidops
 \section{ath_featureLength dataset}{
 
 Length of Arabidopsis thaliana genes (TAIR10) obtained with the following code:
+  
   \code{
+    
     library(biomaRt)
+    
     ath <- useMart('plants_mart', host = "plants.ensembl.org", dataset = "athaliana_eg_gene")
+    
     gene_start_end = getBM(attributes = c('ensembl_gene_id', 'start_position', 'end_position'), mart = ath)
+    
     featureLength <- gene_start_end$end_position - gene_start_end$start_position
+    
     names(featureLength) <- gene_start_end$ensembl_gene_id}
 }
