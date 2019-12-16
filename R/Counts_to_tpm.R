@@ -34,5 +34,6 @@ Counts_to_tpm <- function(counts, featureLength) {
   tpm <- as.data.frame(tpm)
   colnames(tpm) <- colnames(counts)
   rownames(tpm) <- rownames(counts)
-  return(tpm, rownames(tpm)) # Returns a data frame
+  result <- list(tpm, rownames(tpm))
+  return(result) # Returns a data frame
 }
