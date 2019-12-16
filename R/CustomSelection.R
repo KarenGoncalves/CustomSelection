@@ -1,0 +1,56 @@
+#' CustomSelection: a package for selecting reference genes from RNAseq data
+#'
+#' The CustomSelection package provides three funtions:
+#' Counts_to_tpm, DAFS and customReferences.
+#'
+#' @section Counts_to_tpm function:
+#' Transforms count data into Transcripts Per Million (TPM) data
+#'
+#' With the matrix of counts and the size of the genes/transcripts, it calculates the TPM.
+#'
+#' This function was modified from a gist from Slowkow (https://gist.github.com/slowkow/c6ab0348747f86e2748b).
+#'
+#' Here, we do not calculate the effective length.
+#'
+#' @section DAFS function:
+#' Calculates the threshold for a gene to be considered truly expressed
+#'
+#' This function calculates the threshold for a gene to be considered truly expressed in each sample (columns of the expression data frame).
+#'
+#' Modified from George and Chang (2014).
+#'
+#' The function normally requires two inputs: data and name.
+#' We do not export the result, so we do not need a 'name' argument.
+#'
+#' @section custom_References fucntion:
+#' Uses average TPM values and the covariance of TPM values to select reference genes from RNAseq data
+#'
+#' This function uses the Counts_to_tpm and the DAFS function to select the reference genes.
+#'
+#' After transforming the counts into TPM values, the tpm data frame is used as input for DAFS function.
+#'
+#' We then calculate the average cutoff (result from DAFS) for all samples.
+#'
+#' Genes with average expression level lower than the average cutoff are excluded and the genes with lowest covariance are selected.
+#'
+#' @section sample_counts dataset:
+#' Example - Counts data frame
+#'
+#' Counts of 3 samples (4 replicates per sample) of Arabidopsis thaliana genes.
+#'
+#' Transgenic Arabidopsis thaliana Columbia-0 plants expressing GFP alone (Control) or fused to a candidate secreted effector protein of the fungus Melampsora larici-populina (Mlp37347 or Mlp124499) were used for the transcriptome analysis.
+#'
+#' RNA was extracted from pooled aerial tissue of 2-week-old soil-grown plants, doing four replicates per genotype. Libraries were generated using the TruSeq Stranded mRNA Library Prep kit (Illumina) and 100 ng of total RNA. The libraries were sequenced with Illumina HiSeq 4000 Sequencer paired-end reads of 100nt.
+#'
+#' Trimmomatic (LEADING:4 TRAILING:4 SLIDINGWINDOW:4:20 MINLEN:20) and then the surviving paired reads were aligned to the TAIR10 assembly of the genome of A. thaliana with TopHat v2.0.14 in Galaxy (default options, with average mate inner distance varying for each replicate and standard deviation of distance between pairs of 50 base pairs).
+#'
+#' Further analyses were done using R software v.3.2.5. Genomic ranges of Arabidopsis transcripts were obtained from Ensembl plants with GenomicFeatures and overlaps of sequencing reads with the transcripts were counted using GenomicAlignments, using options for paired-end reads and union mode.
+#'
+#' @section ath_featureLength dataset:
+#' Example - vector with gene length
+#'
+#' Length of Arabidopsis thaliana genes (TAIR10) obtained with the following code:
+#'
+#' @docType package
+#' @name CustomSelection
+NULL

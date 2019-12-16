@@ -2,25 +2,28 @@
 % Please edit documentation in R/Counts_to_tpm.R
 \name{Counts_to_tpm}
 \alias{Counts_to_tpm}
-\title{Counts_to_tpm
-This function was modified from a gist from Slowkow, we do not calculate the effective length
-With the matrix of counts and the size of the genes/transcripts, it calculates the TPM}
+\title{Transforms count data into Transcripts Per Million (TPM) data}
 \usage{
 Counts_to_tpm(counts, featureLength)
 }
 \arguments{
-\item{counts}{matrix of genes/features (in the rows) by samples (in the columns)}
+\item{counts}{Data frame genes/features (in the rows) by samples (in the columns).
+Rownames must be in the names of the features and in the same format as the names of the featureLength vector}
 
-\item{featureLength}{a named numeric vector with the length of each gene/feature}
+\item{featureLength}{Named numeric vector with the length of each gene/feature.
+Names must be the names of the features and in the same format as the rownames of the data frame counts.}
 }
 \value{
-list with: a data frame with TPM of genes (rows) per sample (columns)
+List with: a data frame with TPM of genes (rows) per sample (columns)
 and a vector with the names of the genes/features for which the TPM was calculated
 }
 \description{
-Counts_to_tpm
-This function was modified from a gist from Slowkow, we do not calculate the effective length
-With the matrix of counts and the size of the genes/transcripts, it calculates the TPM
+With the matrix of counts and the size of the genes/transcripts, it calculates the TPM.
+}
+\details{
+This function was modified from a gist from Slowkow (https://gist.github.com/slowkow/c6ab0348747f86e2748b).
+
+Here, we do not calculate the effective length.
 }
 \references{
 https://gist.github.com/slowkow/c6ab0348747f86e2748b

@@ -2,25 +2,27 @@
 % Please edit documentation in R/customReferences.R
 \name{customReferences}
 \alias{customReferences}
-\title{CustomReferences}
+\title{Uses average TPM values and the covariance of TPM values to select reference genes from RNAseq data}
 \usage{
 customReferences(counts, featureLength, top_genes = 0.5)
 }
 \arguments{
-\item{counts}{matrix of genes/features (in the rows) by samples (in the columns)}
+\item{counts}{Data frame genes/features (in the rows) by samples (in the columns). Rownames must be in the names of the features and in the same format as the names of the featureLength vector}
 
-\item{featureLength}{a named numeric vector with the length of each gene/feature}
+\item{featureLength}{Named numeric vector with the length of each gene/feature. Names must be the names of the features and in the same format as the rownames of the data frame counts.}
 
-\item{top_genes}{percentage of genes (left after filtering) to be selected as references, default is 0.5\%}
+\item{top_genes}{Percentage of genes (left after filtering) to be selected as references, default is 0.5\%.}
 }
 \value{
-data frame with genes as rows and two columns: Mean (average TPM) and Covariance
+Data frame with genes as rows and two columns: Mean (average TPM) and Covariance.
 }
 \description{
 This function uses the Counts_to_tpm and the DAFS function to select the reference genes.
-After transforming the counts into TPM values, the tpm data frame is used
-as input for DAFS function.
-We then calculate the average cutoff (result from DAFS) for all samples
-Genes with average expression level lower than the average cutoff are excluded
-and the genes with lowest covariance are selected.
+}
+\details{
+After transforming the counts into TPM values, the tpm data frame is used as input for DAFS function.
+
+We then calculate the average cutoff (result from DAFS) for all samples.
+
+Genes with average expression level lower than the average cutoff are excluded and the genes with lowest covariance are selected.
 }
