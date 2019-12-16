@@ -59,9 +59,10 @@ Starting with raw reads run:
 > txMat=list()
 
 > for (i in names(bfl)){
-  txMat[[i]] <- assays(summarizeOverlaps(tx, bfl[[i]], mode = Union, singleEnd=F, ignore.strand=F, fragments=T))$counts
+
+> txMat[[i]] <- assays(summarizeOverlaps(tx, bfl[[i]], mode = Union, singleEnd=F, ignore.strand=F, fragments=T))$counts
   
-   write.csv(as.data.frame(txMat[[i]]), file=paste(gsub(".bam","",i), ".csv", sep=""))}
+> write.csv(as.data.frame(txMat[[i]]), file=paste(gsub(".bam","",i), ".csv", sep=""))}
 
 > counts <- do.call(cbind, txMat)
 
