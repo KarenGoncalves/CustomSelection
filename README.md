@@ -44,7 +44,7 @@ Starting with raw reads run:
 
 > tx <- transcriptsBy(ath)
 
-2. Create a table with the names of the samples as they are in the bam and bai files. Then use the package "Rsamtools" to create the bam file listExample, for three bam files of three replicates of the control sample (CNT-1, CNT-2, CNT-3):
+2. Create a table with the names of the samples as they are in the bam and bai files. Then use the package "Rsamtools" to create the bam file list. Example, for three bam files of three replicates of the control sample (CNT-1, CNT-2, CNT-3):
 
 > samples <- c(paste0("CNT-", 1:3))
 
@@ -54,14 +54,15 @@ Starting with raw reads run:
 
 > bfl <- BamFileList(file.path(sampleTable$fileNameBam), file.path(sampleTable$fileNameBai), yieldSize = 20000)
 
-3. Use the package "GenomicAlignments" to count the number of reads aligned to each gene in the transcript database. Then, create a data frame of read counts per sampleExample for paired reads
+3. Use the package "GenomicAlignments" to count the number of reads aligned to each gene in the transcript database. Then, create a data frame of read counts per sampleExample for paired reads:
 
 > txMat=list()
+
 > for (i in names(bfl)){
-  txMat[[i]] <- assays(summarizeOverlaps(tx, bfl[[i]], mode = Union,
-                                      singleEnd=F, ignore.strand=F, fragments=T))$counts
-   write.csv(as.data.frame(txMat[[i]]),
-            file=paste(gsub(".bam","",i), ".csv", sep=""))
-}
+  txMat[[i]] <- assays(summarizeOverlaps(tx, bfl[[i]], mode = Union, singleEnd=F, ignore.strand=F, fragments=T))$counts
+  
+   write.csv(as.data.frame(txMat[[i]]), file=paste(gsub(".bam","",i), ".csv", sep=""))}
+
 > counts <- do.call(cbind, txMat)
+
 > colnames(counts) <- samples
