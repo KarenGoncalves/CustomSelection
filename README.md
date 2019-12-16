@@ -30,38 +30,45 @@ Starting with raw reads run:
 
 1. Use the package "GenomicFeatures" to construct a transcript database from biomart. Example, for _Arabidopsis thaliana_:
 
-> library("GenomicFeatures")
+    ```
+      library("GenomicFeatures")
 
-> ath <- makeTxDbFromBiomart(biomart="plants_mart",
-                        dataset="athaliana_eg_gene",
-                        transcript_ids=NULL,
-                        circ_seqs=DEFAULT_CIRC_SEQS,
-                        filter=NULL,
-                        id_prefix="ensembl_",
-                        host="plants.ensembl.org",
-                        taxonomyId=3702,
-                        miRBaseBuild=NA)
+      ath <- makeTxDbFromBiomart(biomart = "plants_mart",
+                                 dataset = "athaliana_eg_gene",
+                                 transcript_ids = NULL,
+                                 circ_seqs = DEFAULT_CIRC_SEQS,
+                                 filter = NULL,
+                                 id_prefix = "ensembl_",
+                                  = "plants.ensembl.org",
+                                 taxonomyId = 3702,
+                                 miRBaseBuild = NA)
 
-> tx <- transcriptsBy(ath)
+      tx <- transcriptsBy(ath)
+    ```
+
 
 2. Create a table with the names of the samples as they are in the bam and bai files. Then use the package "Rsamtools" to create the bam file list. Example, for three bam files of three replicates of the control sample (CNT-1, CNT-2, CNT-3):
 
-> samples <- c(paste0("CNT-", 1:3))
+    ```
+      samples <- c(paste0("CNT-", 1:3))
 
-> sampleTable <- data.frame(sampleName = samples, fileNameBam = paste0(samples, ".bam"), fileNameBai = paste0(samples, ".bai"))
+      sampleTable <- data.frame(sampleName = samples, fileNameBam = paste0(samples, ".bam"), fileNameBai = paste0(samples, ".bai"))
 
-> library("Rsamtools")
+      library("Rsamtools")
+      bfl <- BamFileList(file.path(sampleTable$fileNameBam), file.path(sampleTable$fileNameBai), yieldSize = 20000)
 
-> bfl <- BamFileList(file.path(sampleTable$fileNameBam), file.path(sampleTable$fileNameBai), yieldSize = 20000)
+    ```
 
 3. Use the package "GenomicAlignments" to count the number of reads aligned to each gene in the transcript database. Then, create a data frame of read counts per sample. Example for paired reads:
 
-> txMat=list()\nfor (i in names(bfl)){
+    ```
+      txMat=list()
 
-> txMat[[i]] <- assays(summarizeOverlaps(tx, bfl[[i]], mode = Union, singleEnd=F, ignore.strand=F, fragments=T))$counts
-  
-> write.csv(as.data.frame(txMat[[i]]), file=paste(gsub(".bam","",i), ".csv", sep=""))}
+      for (i in names(bfl)){
+      txMat[[i]] <- assays(summarizeOverlaps(tx, bfl[[i]], mode = Union, singleEnd=F, ignore.strand=F, fragments=T))$counts
+      write.csv(as.data.frame(txMat[[i]]), file=paste(gsub(".bam","",i), ".csv", sep=""))}
 
-> counts <- do.call(cbind, txMat)
+      counts <- do.call(cbind, txMat)
 
-> colnames(counts) <- samples
+      colnames(counts) <- samples
+    ```
