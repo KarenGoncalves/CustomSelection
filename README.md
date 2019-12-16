@@ -14,4 +14,4 @@ Deposited in NCBI GEO under accession [GSE136038](https://www.ncbi.nlm.nih.gov/g
 Modified from [Slowkow gist](https://gist.github.com/slowkow/c6ab0348747f86e2748b)
 
 ### DAFS
-Obtained from [George and Chang (2014)](doi:10.1186/1471-2105-15-92)
+Obtained from [George and Chang \(2014\)](doi:10.1186/1471-2105-15-92)
