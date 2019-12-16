@@ -44,7 +44,7 @@ This function uses the Counts_to_tpm and the DAFS function to select the referen
 
 After transforming the counts into TPM values, the tpm data frame is used as input for DAFS function.
 
-We then select the genes with lowest covariance, among those considered as expressed according to DAFS (average expression higher than the cutoff), as references.#' @section sample_counts dataset:
+We then select the genes with lowest covariance, among those considered as expressed according to DAFS (average expression higher than the cutoff), as references.
 }
 
 \section{sample_counts dataset}{
@@ -64,5 +64,10 @@ Further analyses were done using R software v.3.2.5. Genomic ranges of Arabidops
 \section{ath_featureLength dataset}{
 
 Length of Arabidopsis thaliana genes (TAIR10) obtained with the following code:
+  \code{
+    library(biomaRt)
+    ath <- useMart('plants_mart', host = "plants.ensembl.org", dataset = "athaliana_eg_gene")
+    gene_start_end = getBM(attributes = c('ensembl_gene_id', 'start_position', 'end_position'), mart = ath)
+    featureLength <- gene_start_end$end_position - gene_start_end$start_position
+    names(featureLength) <- gene_start_end$ensembl_gene_id}
 }
-
