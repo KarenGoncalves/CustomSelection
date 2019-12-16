@@ -24,3 +24,7 @@ After transforming the counts into TPM values, the tpm data frame is used as inp
 
 We then select the genes with lowest covariance, among those considered as expressed according to DAFS (average expression higher than the cutoff), as references.
 }
+\examples{
+data("sample_counts"); data("ath_featureLength")
+genes <- customReferences(counts = sample_counts, featureLength = ath_featureLength, top_genes = 0.5)
+}

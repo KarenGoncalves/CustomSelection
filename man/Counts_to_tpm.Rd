@@ -25,6 +25,11 @@ This function was modified from a gist from Slowkow (https://gist.github.com/slo
 
 Here, we do not calculate the effective length.
 }
+\examples{
+data("sample_counts"); data("ath_featureLength")
+Counts_to_tpm(counts = sample_counts, featureLength = ath_featureLength)
+
+}
 \references{
 https://gist.github.com/slowkow/c6ab0348747f86e2748b
 }
