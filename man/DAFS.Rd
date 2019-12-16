@@ -2,18 +2,22 @@
 % Please edit documentation in R/DAFS.R
 \name{DAFS}
 \alias{DAFS}
-\title{DAFS}
+\title{Calculates the threshold for a gene to be considered truly expressed}
 \usage{
 DAFS(tpm)
 }
 \arguments{
-\item{tpm}{Data frame of TPM of genes (rows) per sample (columns)}
+\item{tpm}{Data frame of log2 transformed expression values (RPKM, FPKM, TPM, CPM, etc.). We recomend the use of the fuction Counts_to_tpm from this package.}
 }
 \value{
-a vector with threshold for noise/true expression for each sample (columns from counts) in log2
+A vector with threshold for noise/true expression for each sample (columns from tpm data frame) in log2
 }
 \description{
-Modified from George and Chang (2014)
+This function calculates the threshold for a gene to be considered truly expressed in each sample (columns of the expression data frame).
+}
+\details{
+Modified from George and Chang (2014).
+
 The function normally requires two inputs: data and name.
 We do not export the result, so we do not need a 'name' argument.
 }

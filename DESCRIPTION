@@ -18,7 +18,7 @@ Authors@R:
 Description: This package calculates the Transcripts Per Million data frame from the counts matrix, calculates the minimum expresion level for a gene to be considered expressed in each sample and selects as reference genes those with lowest covariance
 Maintainer: Karen Cristine Goncalves dos Santos <Karen.Cristine.Goncalves.dos.Santos@uqtr.ca>
 License: none
-Depends: mclust, earth
+Depends: mclust, earth, R (>= 2.10)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

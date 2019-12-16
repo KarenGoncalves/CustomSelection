@@ -1,13 +1,16 @@
-#' DAFS
+#' Calculates the threshold for a gene to be considered truly expressed
 #'
-#' Modified from George and Chang (2014)
+#' This function calculates the threshold for a gene to be considered truly expressed in each sample (columns of the expression data frame).
+#'
+#' Modified from George and Chang (2014).
+#'
 #' The function normally requires two inputs: data and name.
 #' We do not export the result, so we do not need a 'name' argument.
-#' @param tpm Data frame of TPM of genes (rows) per sample (columns)
+#' @param tpm Data frame of log2 transformed expression values (RPKM, FPKM, TPM, CPM, etc.). We recomend the use of the fuction Counts_to_tpm from this package.
 #' @author George and Chang (2014)
 #' @references doi:10.1186/1471-2105-15-92
 #' @export
-#' @return a vector with threshold for noise/true expression for each sample (columns from counts) in log2
+#' @return A vector with threshold for noise/true expression for each sample (columns from tpm data frame) in log2
 
 DAFS <- function(tpm){
 
@@ -57,6 +60,3 @@ DAFS <- function(tpm){
   names(cutv) <- colnames(data)
   return(cutv)
 }
-
-
-
