@@ -22,7 +22,7 @@ Starting with raw reads run:
 1. Quality filtering [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 2. Alignment ([HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml), [TopHat2](https://ccb.jhu.edu/software/tophat/index.shtml)) or do a De novo assembly ([Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki), [Trans-abyss](https://github.com/bcgsc/transabyss)), then align the reads to the assembly
 3. Sort the alignment ([samtools sort](http://samtools.sourceforge.net/))
-4. Get the read count for each gene in each sample (proposed workflow in R bellow)
+4. Get the read count for each gene in each sample (proposed workflow in R below)
 5. Run Counts_to_tpm, DAFS and gene_selection OR run customReferences
 
 
