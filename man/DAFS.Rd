@@ -7,7 +7,9 @@
 DAFS(tpm)
 }
 \arguments{
-\item{tpm}{Data frame of log2 transformed expression values (RPKM, FPKM, TPM, CPM, etc.). We recomend the use of the fuction Counts_to_tpm from this package.}
+\item{tpm}{Data frame of log2 transformed expression values (RPKM, FPKM, TPM, CPM, etc.). We recomend the use of the fuction Counts_to_tpm from this package. As the Counts_to_tpm function returns a list, use as input for DAFS the first object of its result, e.g.:
+
+\code{DAFS(Counts_to_tpm(...)[[1]])}}
 }
 \value{
 A vector with threshold for noise/true expression for each sample (columns from tpm data frame) in log2
@@ -20,6 +22,12 @@ Modified from George and Chang (2014).
 
 The function normally requires two inputs: data and name.
 We do not export the result, so we do not need a 'name' argument.
+}
+\examples{
+data("sample_counts"); data("ath_featureLength")
+tpm = Counts_to_tpm(counts = sample_counts, featureLength = ath_featureLength)
+DAFS(tpm[[1]])
+
 }
 \references{
 doi:10.1186/1471-2105-15-92

@@ -22,3 +22,10 @@ If counts_to_tpm and DAFS functions were already computed, this function will us
 \details{
 If there is no interest on keeping the results from DAFS or the TPM values for all genes in each sample, run customReferences instead.
 }
+\examples{
+data("sample_counts"); data("ath_featureLength")
+tpm <- Counts_to_tpm(counts = sample_counts, featureLength = ath_featureLength)
+dafs <- DAFS(tpm[[1]])
+genes <- gene_selection(countsToTpm_result = tpm[[1]], dafs_result = dafs, top_genes = 0.5)
+
+}
