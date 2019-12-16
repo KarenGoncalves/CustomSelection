@@ -20,7 +20,7 @@ gene_selection <- function(countsToTpm_result, dafs_result, top_genes = 0.5) {
   mean_cov <-
     data.frame(cbind("Mean" = apply(countsToTpm_result, 1, mean),
                      "Covariance" =
-                       apply(tpm, 1, sd)/apply(countsToTpm_result, 1, mean)))
+                       apply(countsToTpm_result, 1, sd)/apply(countsToTpm_result, 1, mean)))
 
   # Exclude genes with average TPM lower than the cutoff
   mean_cov <- mean_cov[mean_cov$Mean > cutoff,]
