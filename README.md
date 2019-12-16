@@ -54,11 +54,9 @@ Starting with raw reads run:
 
 > bfl <- BamFileList(file.path(sampleTable$fileNameBam), file.path(sampleTable$fileNameBai), yieldSize = 20000)
 
-3. Use the package "GenomicAlignments" to count the number of reads aligned to each gene in the transcript database. Then, create a data frame of read counts per sampleExample for paired reads:
+3. Use the package "GenomicAlignments" to count the number of reads aligned to each gene in the transcript database. Then, create a data frame of read counts per sample. Example for paired reads:
 
-> txMat=list()
-
-> for (i in names(bfl)){
+> txMat=list()\nfor (i in names(bfl)){
 
 > txMat[[i]] <- assays(summarizeOverlaps(tx, bfl[[i]], mode = Union, singleEnd=F, ignore.strand=F, fragments=T))$counts
   
