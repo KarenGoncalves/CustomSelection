@@ -3,7 +3,6 @@
 \docType{package}
 \name{CustomSelection}
 \alias{CustomSelection}
-\alias{CustomSelection-package}
 \title{CustomSelection: a package for selecting reference genes from RNAseq data}
 \description{
 The CustomSelection package provides four funtions:
