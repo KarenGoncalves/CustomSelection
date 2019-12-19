@@ -57,21 +57,35 @@ Starting with raw reads run:
     ```
       samples <- c(paste0("CNT-", 1:3))
 
-      sampleTable <- data.frame(sampleName = samples, fileNameBam = paste0(samples, ".bam"), fileNameBai = paste0(samples, ".bai"))
+      sampleTable <- data.frame(sampleName = samples, 
+                                fileNameBam = paste0(samples, ".bam"), 
+                                fileNameBai = paste0(samples, ".bai"))
 
       library("Rsamtools")
-      bfl <- BamFileList(file.path(sampleTable$fileNameBam), file.path(sampleTable$fileNameBai), yieldSize = 20000)
+      bfl <- BamFileList(file.path(sampleTable$fileNameBam), 
+                         file.path(sampleTable$fileNameBai), 
+                         yieldSize = 20000)
 
     ```
 
 3. Use the package "GenomicAlignments" to count the number of reads aligned to each gene in the transcript database. Then, create a data frame of read counts per sample. Example for paired reads:
 
     ```
+      library("GenomicAlignments")
       txMat=list()
 
       for (i in names(bfl)){
-      txMat[[i]] <- assays(summarizeOverlaps(tx, bfl[[i]], mode = Union, singleEnd=F, ignore.strand=F, fragments=T))$counts
-      write.csv(as.data.frame(txMat[[i]]), file=paste(gsub(".bam","",i), ".csv", sep=""))}
+         txMat[[i]] <- assays(summarizeOverlaps(
+                         features = tx, 
+                         reads = bfl[[i]], 
+                         mode = Union, 
+                         singleEnd = F, 
+                         ignore.strand = F, 
+                         fragments = T))$counts
+                           
+         write.csv(x = as.data.frame(txMat[[i]]), 
+                   file = paste(gsub(".bam", "" , i), ".csv", sep = ""))
+                }
 
       counts <- do.call(cbind, txMat)
 
