@@ -1,20 +1,23 @@
 Package: CustomSelection
-Title: Selection of reference genes from RNAseq data
+Title: Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis
 Version: 0.0.0.9000
 Authors@R: 
     c(person(given = "Karen Cristine",
-    family = "Goncalves dos Santos",
-    role = c("aut", "cre"),
-    email = "Karen.Cristine.Goncalves.dos.Santos@uqtr.ca",
-    comment = c(ORCID = "https://orcid.org/0000-0003-3270-3133")),
-    person(given = "Hugo",
-    family = "Germain",
-    role = "aut",
-    email = "Hugo.Germain@uqtr.ca"),
-    person(given = "Isabel",
-    family = "Desgagne-Penix",
-    role = "aut",
-    email = "Isabel.Desgagne-Penix@uqtr.ca"))
+             family = "Goncalves dos Santos",
+             role = c("aut", "cre"),
+             email = "Karen.Cristine.Goncalves.dos.Santos@uqtr.ca",
+             comment = c(ORCID = "https://orcid.org/0000-0003-3270-3133")),
+      person(given = "Hugo",
+             family = "Germain",
+             role = "aut",
+             email = "Hugo.Germain@uqtr.ca"),
+      person(given = "Isabel",
+             family = "Desgagne-Penix",
+             role = "aut",
+             email = "Isabel.Desgagne-Penix@uqtr.ca"))
+Author: Karen Cristine Goncalves dos Santos [aut, cre]
+        Hugo Germain [aut]
+        Isabel Desgagné-Pénix [aut]
 Description: This package calculates the Transcripts Per Million data frame from the counts matrix, calculates the minimum expresion level for a gene to be considered expressed in each sample and selects as reference genes those with lowest covariance
 Maintainer: Karen Cristine Goncalves dos Santos <Karen.Cristine.Goncalves.dos.Santos@uqtr.ca>
 License: none
