@@ -21,6 +21,13 @@ Modified from [Slowkow gist](https://gist.github.com/slowkow/c6ab0348747f86e2748
 ### DAFS
 Obtained from [George and Chang](https://doi.org/10.1186/1471-2105-15-92) (2014) 
 
+## Installation
+
+    ```
+    library(devtools)
+    install_github("KarenGoncalves/CustomSelection")
+    ```
+
 ## Workflow
 
 Starting with raw reads run:
