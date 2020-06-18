@@ -21,15 +21,18 @@ Modified from [Slowkow gist](https://gist.github.com/slowkow/c6ab0348747f86e2748
 ### DAFS
 Obtained from [George and Chang](https://doi.org/10.1186/1471-2105-15-92) (2014) 
 
-## Dependencies
+## Installation
 
-CustomSelection package needs the packages "earth" and "mclust".
+### Dependencies
 
-## Installation in R
+CustomSelection needs the R packages "earth" and "mclust".
+
+### R
 
     ```
     library(devtools)
     install_github("KarenGoncalves/CustomSelection")
+    library("CustomSelection")    
     ```
 
 ## Workflow
