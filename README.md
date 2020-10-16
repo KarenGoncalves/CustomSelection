@@ -29,11 +29,11 @@ CustomSelection needs the R packages "earth" and "mclust".
 
 ### R
 
-    ```
+    
     library(devtools)
     install_github("KarenGoncalves/CustomSelection")
     library("CustomSelection")    
-    ```
+    
 
 ## Workflow
 
