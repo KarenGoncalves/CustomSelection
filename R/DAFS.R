@@ -24,7 +24,7 @@ DAFS <- function(tpm){
 
   # determine which rows have all 0 counts
   out <- apply(tpm, 1, function(x) all(x == 0))
-  if(length(out[out == "TRUE"]) > 0) data <- tpm[-which(out == "TRUE"),]
+  if(length(out[out == "TRUE"]) > 0){ data <- tpm[!out,]} else {data = tpm}
 
   # set vector for cutoff values
   cutv <- rep(0, 0)
@@ -32,7 +32,7 @@ DAFS <- function(tpm){
   for (i in 1:ncol(data)) {
     # specify array and remove 0 counts
     xx <- data[, i]
-    xx <- xx[-which(xx == 0)]
+    xx <- xx[xx != 0]
 
     # take log2 of data
     log2xx <- log2(xx)
