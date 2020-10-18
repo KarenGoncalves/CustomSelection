@@ -1,5 +1,8 @@
 # CustomSelection - package for selection of reference genes from RNAseq data
 
+dos Santos, K.C.G., Desgagné-Penix, I. & Germain, H. Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis. _BMC Genomics_ __21__, 35 (2020). https://doi.org/10.1186/s12864-019-6426-2
+
+
 This package calculates the Transcripts per Million (TPM) data frame from the read count matrix, calculates the minimum expressin level for a gene to be considered as expressed in each sample and selects as reference genes those with lowest covariance.
 
 It contains three main functions: __Counts_to_tpm__, __DAFS__ and __gene_selection__. The function __customReferences__ merges the three main functions and only returns the data frame with the selected genes (in the row names), their average TPM (column "Mean") and the covariance of their TPM (column "Covariance").
