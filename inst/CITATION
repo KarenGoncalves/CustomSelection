@@ -3,14 +3,13 @@ citEntry(entry="article",
          author = personList( as.person("Karen C. G. dos Santos"),
                               as.person("Isabel Desgagné-Penix"),
                               as.person("Hugo Germain")),
-         year = 201420,
+         year = 2020,
          journal = "BMC Genomics",
-         doi = "Hugo Germain",
          volume = 21,
          pages = 35,
          doi = "10.1186/s12864-019-6426-2",
          textVersion = 
          paste("dos Santos, K.C.G., Desgagné-Penix, I., Germain, H", 
                "Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis",
-                "BMC Genomics 21:15 (2020)",
-                "doi: 10.1186/s12864-019-6426-2") )
+               "BMC Genomics 21:15 (2020)",
+               "doi: 10.1186/s12864-019-6426-2") )
