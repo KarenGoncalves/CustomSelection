@@ -13,3 +13,19 @@ citEntry(entry="article",
                "Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis",
                "BMC Genomics 21:15 (2020)",
                "doi: 10.1186/s12864-019-6426-2") )
+citEntry(entry="article",
+         title = "Correction to: Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis",
+         author = personList( as.person("Karen C. G. dos Santos"),
+                              as.person("Isabel Desgagné-Penix"),
+                              as.person("Hugo Germain")),
+         year = 2021,
+         journal = "BMC Genomics",
+         volume = 22,
+         pages = 607,
+         doi = "10.1186/s12864-021-07743-7",
+         textVersion = 
+         paste("dos Santos, K.C.G., Desgagné-Penix, I., Germain, H", 
+               "Correction to: Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis",
+               "BMC Genomics 22:607 (2021)",
+               "doi: 10.1186/s12864-021-07743-7") )
+               
