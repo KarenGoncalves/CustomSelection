@@ -2,6 +2,7 @@
 
 dos Santos, K.C.G., Desgagné-Penix, I. & Germain, H. Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis. _BMC Genomics_ __21__, 35 (2020). https://doi.org/10.1186/s12864-019-6426-2
 
+dos Santos, K.C.G., Desgagné-Penix, I. & Germain, H. Correction to: Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis. _BMC Genomics_ __22__, 607 (2021). https://doi.org/10.1186/s12864-021-07743-7
 
 This package calculates the Transcripts per Million (TPM) data frame from the read count matrix, calculates the minimum expressin level for a gene to be considered as expressed in each sample and selects as reference genes those with lowest covariance.
 
