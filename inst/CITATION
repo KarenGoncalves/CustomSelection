@@ -14,7 +14,7 @@ citEntry(entry="article",
                "BMC Genomics 21:15 (2020)",
                "doi: 10.1186/s12864-019-6426-2") )
                
-citEntry(entry="Correction",
+citEntry(entry="article",
          title = "Correction to: Custom selected reference genes outperform pre-defined reference genes in transcriptomic analysis",
          author = personList( as.person("Karen C. G. dos Santos"),
                               as.person("Isabel Desgagné-Penix"),
